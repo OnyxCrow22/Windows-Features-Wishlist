@@ -194,13 +194,29 @@ def loopTheme():
                 changeTheme(dark=darkCheck)
                 currentMode = darkCheck
                 if not darkCheck: # It's now daytime, so it should fire the daytime response
-                    toast = Notification(app_id="Windows Auto Switch",
+                    if now.hour >= 16:
+                        toast = Notification(app_id="Windows Auto Switch",
+                                         title="Good Evening!",
+                                         msg="The theme is now set to the dark theme, as it is now night-time. Have a good evening! :)",
+                                         icon=getResourcePath(r"WASIcon.png"))
+                    elif now.hour >= 12:
+                        toast = Notification(app_id="Windows Auto Switch",
+                                         title="Good Afternoon!",
+                                         msg="The theme is now set to the light theme, as it is now daytime. Have a good afternoon! :)",
+                                         icon=getResourcePath(r"WASIcon.png"))
+                    elif now.hour >= 4:
+                        toast = Notification(app_id="Windows Auto Switch",
                                          title="Good Morning!",
-                                         msg="The theme is now set to the light theme, as it is now daytime. Have a good day! :)",
+                                         msg="The theme is now set to the light theme, as it is now day-time! Have a good morning! :)",
+                                         icon=getResourcePath(r"WASIcon.png"))
+                    else: # Beyond 8pm, so just fall back to night-time.
+                        toast = Notification(app_id="Windows Auto Switch",
+                                         title="Good Night!",
+                                         msg="The theme is now set to the dark theme, as it is now night-time. Have a good night! :D",
                                          icon=getResourcePath(r"WASIcon.png"))
                 else: # It's night-time! Time to enable dark mode
                     toast = Notification(app_id="Windows Auto Switch",
-                                         title="Good Evening!",
+                                         title="Good Night!",
                                          msg="The theme is now set to the dark theme, as it is now night-time. Have a good night! :D",
                                          icon=getResourcePath(r"WASIcon.png"))
                 toast.show()
