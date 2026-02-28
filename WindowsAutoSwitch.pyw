@@ -18,6 +18,7 @@ TIMEZONE_CAPITALS = {
     -12: (0.193635, -176.476894), # Baker Island
     -11: (-13.848202, -171.760454), # Apia, Samoa
     -10: (21.301821, -157.858052), # Honolulu, Hawaii
+    -9.5: (8.54424, 140.06135), # Taioha'e, French Polynesia
     -9: (58.301986, -134.418464), # Juneau, Alaska
     -8: (38.571181, -121.489869), # Sacramento, California
     -7: (39.741834, -104.997956), # Denver, Colorado
@@ -42,13 +43,16 @@ TIMEZONE_CAPITALS = {
     +6.5: (19.45451, 96.04436), # Naypyidaw, Myanmar
     +7: (13.45201, 100.30180), # Bangkok, Thailand 
     +8: (39.51186, 116.20374), # Beijing, China
+    +8.75: (31.40347, 128.53170), # Ecula, Western Australia
     +9: (35.39378, 139.45462), # Tokyo, Japan
     +9.5: (12.27535, 130.50413), # Darwin, Australia
     +10: (27.27485, 153.01100), # Brisbane, Australia
     +10.5: (34.55401, 138.35110), # Adelaide, Australia 
-    +11: (35.17246, 149.07460), # Canberra, Australia
+    +11: (22.16292, 166.26224), # Noumea, New Caladonia 
     +12: (18.07376, 178.26440), # Suva, Fiji
+    +12.75: (43.57072, 176.33328), # Waitangi, Chatham Islands
     +13: (41.17136, 174.46432), # Wellington, New Zealand
+    +14: (1.58525, 157.28417), # London, Kirimati
 }
 
 # ----------- Settings ---------
