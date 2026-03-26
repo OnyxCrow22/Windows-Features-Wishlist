@@ -91,6 +91,11 @@ def getSunTime(lat, lng):
     today = datetime.now().date() # Get today's date
     sunrise = sun.get_local_sunrise_time(today).replace(tzinfo=None) # Find the local sunrise time according to the IP address
     sunset = sun.get_local_sunset_time(today).replace(tzinfo=None) # Find the local sunset time according to the IP address
+
+    if sunset.date() < today:
+        from datetime import timedelta
+        sunset = sunset + timedelta (days=1)
+
     return sunrise, sunset # Return the current time
 
 # ---------------- Start-up -------------------------
@@ -192,6 +197,14 @@ def loopTheme():
         lat, lng = location # Get the current latitude and longitude of the user's location
         sunrise, sunset = getSunTime(lat, lng)
         darkCheck = now < sunrise or now >= sunset # Check that the current time is less than the local sunrise, or is more than or equal to the local sunset
+
+        print(f"Using location: {lat}, {lng}")
+        print(f"Now: {now}")
+        print(f"Sunrise: {sunrise}")
+        print(f"Sunset: {sunset}")
+        print(f"now < sunrise: {now < sunrise}")
+        print(f"now >= sunset: {now >= sunset}")
+        print(f"darkCheck: {darkCheck}")
 
         if MANUAL_OVERRIDE is not None:
             pass # Skip
